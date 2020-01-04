@@ -138,24 +138,147 @@ class Home extends StatelessWidget {
       // Poniżej będzie tekst ale z lewej
       // body: Text("Hello Ninjas"),
 
-      // A tutaj wycentrujemy nasz tekst
+      // w Row, mozmey trzymac kilka elementów (wdigetow) w jednej lini, dlatego bedzie "children"
+
       body:
-//      Przykład z Containerem
-        // Container jest czymś w rodzaju wrappera dla inncyh widgetow
-        Container(
-          color: Colors.grey[400],
-          // Jeśli nie damy tutaj dziecka (child). to contaienr bedzie na całej powierzchni body
-          // Kiedy dodamy dziecko (child) contaienr będzie obejmował tylko to dziecko, wiec szare tło bedzie tylko na napisie
-          child: Text('Hello'),
+        Row(
+          children: <Widget>[
+            // Pamiętaj, ze Expanded widget dobrze też używć do obrazków
+            Expanded(
+              child: Image.asset('assets/img.jpeg'),
+              flex: 3,
+            ),
+            Expanded(
+              // za pomocą felxa ustaiwmy szerokosc danego elementu
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30),
+                color: Colors.cyan,
+                child: Text('1'),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30),
+                color: Colors.amber,
+                child: Text('2'),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: EdgeInsets.all(30),
+                color: Colors.red,
+                child: Text('3'),
+              ),
+            ),
+          ],
+        ),
 
-          // dodamy poniżej troche paddingu
-          padding: EdgeInsets.all(20.0),
-          // inna opcja na padding
-          // padding: EdgeInsets.fromLTRB(10, 20, 30, 10)
 
-          margin: EdgeInsets.all(30.0),
-        )
+//    Przykład z expanded Widgets
+//        Row(
+//          children: <Widget>[
+//            // Za pomocą Expanded widget, zajmą całą dostępną przestrzeń w Row
+//            // W poniższym przykładzie będą miały wszysktie taką samą szerokość
+//            Expanded(
+//              child: Container(
+//                padding: EdgeInsets.all(30),
+//                color: Colors.cyan,
+//                child: Text('1'),
+//              ),
+//            ),
+//            Expanded(
+//              child: Container(
+//                padding: EdgeInsets.all(30),
+//                color: Colors.amber,
+//                child: Text('2'),
+//              ),
+//            ),
+//            Expanded(
+//              child: Container(
+//                padding: EdgeInsets.all(30),
+//                color: Colors.red,
+//                child: Text('3'),
+//              ),
+//            ),
+//          ],
+//        ),
 
+
+//      Row(
+//        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//        crossAxisAlignment: CrossAxisAlignment.start,
+//        children: <Widget>[
+//          Text('Hello world'),
+//          FlatButton(
+//            onPressed: (){},
+//            color: Colors.amber,
+//            child: Text('Click me')
+//          ),
+//          Container(
+//            color: Colors.cyan,
+//            padding: EdgeInsets.all(30),
+//            child: Text('Inside container')
+//          ),
+//        ]
+//      ),
+
+
+//    Teraz przykłąd z kolumną
+//        Column(
+//          mainAxisAlignment: MainAxisAlignment.end,
+//          crossAxisAlignment: CrossAxisAlignment.end,
+//          children: <Widget>[
+//            Row(
+//              children: <Widget>[
+//                Text('Hello'),
+//                Text('world'),
+//              ],
+//            ),
+//            Container(
+//              padding: EdgeInsets.all(20),
+//              color: Colors.cyan,
+//              child: Text('one'),
+//            ),
+//            Container(
+//              padding: EdgeInsets.all(30),
+//              color: Colors.red,
+//              child: Text('two'),
+//            ),
+//            Container(
+//              padding: EdgeInsets.all(40),
+//              color: Colors.blueAccent,
+//              child: Text('three'),
+//            ),
+//          ],
+//        ),
+
+      // A tutaj wycentrujemy nasz tekst
+//      body:
+////      Przykład z Containerem
+//        // Container jest czymś w rodzaju wrappera dla inncyh widgetow
+//        Container(
+//          color: Colors.grey[400],
+//          // Jeśli nie damy tutaj dziecka (child). to contaienr bedzie na całej powierzchni body
+//          // Kiedy dodamy dziecko (child) contaienr będzie obejmował tylko to dziecko, wiec szare tło bedzie tylko na napisie
+//          child: Text('Hello'),
+//
+//          // dodamy poniżej troche paddingu
+//          padding: EdgeInsets.all(20.0),
+//          // inna opcja na padding
+//          // padding: EdgeInsets.fromLTRB(10, 20, 30, 10)
+//
+//          margin: EdgeInsets.all(30.0),
+//        ),
+
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Text('click'),
+        backgroundColor: Colors.red[600],
+      ),
 
 //      Center(
 //        child:
@@ -225,12 +348,7 @@ class Home extends StatelessWidget {
 //            fontFamily: 'MaShan',
 //          ),
 //        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Text('click'),
-        backgroundColor: Colors.red[600],
-      ),
+
     );
   }
 }
